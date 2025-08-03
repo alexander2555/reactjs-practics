@@ -1,0 +1,92 @@
+{
+  "users": [
+    {
+      "id": "001",
+      "login": "user1",
+      "password": "Pa$$w0rd",
+      "registered_at": "2023-01-01",
+      "role_id": 0
+    },
+    {
+      "login": "user3",
+      "password": "pass33",
+      "registeredAt": "2025-07-14T14:27:44.382Z",
+      "role_id": 1,
+      "id": "thqwbJa"
+    }
+  ],
+  "roles": [
+    {
+      "id": 0,
+      "name": "Admin"
+    },
+    {
+      "id": 1,
+      "name": "Moderator"
+    },
+    {
+      "id": 2,
+      "name": "Reader"
+    },
+    {
+      "id": 3,
+      "name": "Guest"
+    }
+  ],
+  "posts": [
+    {
+      "id": "001",
+      "title": "test 1",
+      "content": "This is the content of the first post. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "image_url": "https://fastly.picsum.photos/id/594/200/200.jpg?hmac=owYWnk-K1Yd10c-pUQt8S_02BsTYKsMvSxMWNexClq8",
+      "published_at": "2023-01-02"
+    },
+    {
+      "image_url": "https://fastly.picsum.photos/id/545/200/300.jpg?hmac=mKTuqg7uMMnQbx-G17z5e7tJrjfkYtqbsfRm_dCrCfQ",
+      "title": "test 2",
+      "content": "&amp;amp;amp;lt;span style=\"color: rgb(0, 0, 0); font-family: &amp;amp;amp;amp;quot;Open Sans&amp;amp;amp;amp;quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\"&amp;amp;amp;gt;Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.&amp;amp;amp;lt;/span&amp;amp;amp;gt;",
+      "published_at": "2025-07-28T14:28:56.934Z",
+      "id": "isLyVch"
+    },
+    {
+      "image_url": "https://fastly.picsum.photos/id/755/200/300.jpg?hmac=CfzLROBA3atEQnBKXK5SeavNo-1QRwZRwcqZwwdBMdM",
+      "title": "Test 3",
+      "content": "<span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</span>",
+      "published_at": "2025-08-03T15:48:10.512Z",
+      "id": "puahF5Z"
+    }
+  ],
+  "comments": [
+    {
+      "author_id": "001",
+      "post_id": "001",
+      "published_at": "2025-07-28T10:46:39.471Z",
+      "content": "test comment",
+      "id": 1
+    },
+    {
+      "author_id": "001",
+      "post_id": "001",
+      "published_at": "2025-07-28T13:09:45.288Z",
+      "content": "test 2",
+      "id": 2
+    },
+    {
+      "author_id": "thqwbJa",
+      "post_id": "001",
+      "published_at": "2025-07-30T21:33:55.993Z",
+      "content": "test 3",
+      "id": 3
+    }
+  ],
+  "sessions": {
+    "hash": "hgz8ticctrtszb0it1vb",
+    "user": {
+      "id": "001",
+      "login": "user1",
+      "password": "Pa$$w0rd",
+      "registeredAt": "2023-01-01",
+      "roleId": 0
+    }
+  }
+}

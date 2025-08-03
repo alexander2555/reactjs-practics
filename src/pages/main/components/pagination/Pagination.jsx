@@ -1,0 +1,30 @@
+import styled from 'styled-components'
+import { Button } from '../../../../components'
+
+const PaginationContainer = ({ className, page, setPage, lastPage }) => {
+  return (
+    <div className={className}>
+      <Button onClick={() => setPage(1)} disabled={page === 1}>
+        Begin
+      </Button>
+      <Button onClick={() => setPage(page - 1)} disabled={page === 1}>
+        Prev
+      </Button>
+      <div className='current-page'>{page}</div>
+      <Button onClick={() => setPage(page + 1)} disabled={page === lastPage}>
+        Next
+      </Button>
+      <Button onClick={() => setPage(lastPage)} disabled={page === lastPage}>
+        End
+      </Button>
+    </div>
+  )
+}
+
+export const Pagination = styled(PaginationContainer)`
+  display: flex;
+
+  & .current-page {
+    border: 1px solid black;
+  }
+`

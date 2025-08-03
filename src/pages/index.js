@@ -1,0 +1,6 @@
+export * from './main/Main'
+export * from './auth/Auth'
+export * from './reg/Reg'
+export * from './users/Users'
+export * from './user/User'
+export * from './post/Post'
