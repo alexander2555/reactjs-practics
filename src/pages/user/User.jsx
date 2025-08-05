@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const UserContainer = ({ className }) => {
@@ -17,3 +17,7 @@ export const User = styled(UserContainer)`
     text-align: center;
   }
 `
+
+UserContainer.propTypes = {
+  login: PropTypes.string.isRequired,
+}

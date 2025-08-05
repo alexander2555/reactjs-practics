@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { openModal, CLOSE_MODAL, removeCommentAsync } from '../../../../actions'
 import { Button, Icon } from '../../../../components'
@@ -60,3 +61,11 @@ export const Comment = styled(CommentContainer)`
   & .comment-footer {
     font-size: smaller;
 `
+
+Comment.propTypes = {
+  postId: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  content: PropTypes.string.isRequired,
+  aothor: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+}

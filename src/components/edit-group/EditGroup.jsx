@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import { Button, Icon } from '../'
 
 import styled from 'styled-components'
@@ -21,3 +23,11 @@ const EditGroupContainer = ({ className, name, data, setData, placeholder, onCli
 export const EditGroup = styled(EditGroupContainer)`
   display: flex;
 `
+
+EditGroup.propTypes = {
+  name: PropTypes.string.isRequired,
+  data: PropTypes.string.isRequired,
+  setData: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+}

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -58,4 +59,13 @@ export const Button = ({ link, nav, onClick, children, className, title, disable
       {children}
     </ButtonContainer>
   )
+}
+
+Button.propTypes = {
+  link: PropTypes.string,
+  nav: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+  disabled: PropTypes.bool,
 }
