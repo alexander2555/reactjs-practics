@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useLayoutEffect, useRef, useState } from 'react'
@@ -5,8 +6,9 @@ import { Button, Icon, Input } from '../../../../components'
 import { SpecialPanel } from '../special-panel/SpecialPanel'
 import { sanitizeContent } from './utils'
 import { savePostAsync } from '../../../../actions'
-import styled from 'styled-components'
 import { useServerRequest } from '../../../../hooks'
+import { PROP_TYPE } from '../../../../constants'
+import styled from 'styled-components'
 
 const ImgFloat = styled.img`
   float: left;
@@ -105,3 +107,7 @@ export const PostForm = styled(PostFormContainer)`
     }
   }
 `
+
+PostForm.propTypes = {
+  post: PropTypes.arrayOf(PROP_TYPE.POST).isRequired,
+}

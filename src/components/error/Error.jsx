@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+import { PROP_TYPE } from '../../constants'
 import styled from 'styled-components'
 
 const ErrorContainer = ({ error }) => {
@@ -10,3 +12,7 @@ const ErrorContainer = ({ error }) => {
 }
 
 export const Error = styled(ErrorContainer)``
+
+Error.propTypes = {
+  error: PROP_TYPE.ERROR,
+}

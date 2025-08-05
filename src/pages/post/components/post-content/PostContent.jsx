@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types'
 import { SpecialPanel } from '../special-panel/SpecialPanel'
 import { Button, Icon } from '../../../../components'
 import styled from 'styled-components'
+import { PROP_TYPE } from '../../../../constants'
 
 const ImgFloat = styled.img`
   float: left;
@@ -39,3 +41,7 @@ export const PostContent = styled(PostContentContainer)`
     text-transform: capitalize;
   }
 `
+
+PostContent.propTypes = {
+  post: PROP_TYPE.POST,
+}
