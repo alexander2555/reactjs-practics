@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types'
 import { SpecialPanel } from '../special-panel/SpecialPanel'
 import { Button, Icon } from '../../../../components'
-import styled from 'styled-components'
 import { PROP_TYPE } from '../../../../constants'
+import styled from 'styled-components'
 
 const ImgFloat = styled.img`
   float: left;
@@ -43,5 +42,5 @@ export const PostContent = styled(PostContentContainer)`
 `
 
 PostContent.propTypes = {
-  post: PROP_TYPE.POST,
+  post: PROP_TYPE.POST.isRequired,
 }

@@ -10,6 +10,4 @@ export const Icon = styled(IconContainer)`
 
 Icon.propTypes = {
   id: PropTypes.string.isRequired,
-  size: PropTypes.string,
-  margin: PropTypes.string,
 }

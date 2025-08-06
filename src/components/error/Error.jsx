@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import { PROP_TYPE } from '../../constants'
 import styled from 'styled-components'
 
