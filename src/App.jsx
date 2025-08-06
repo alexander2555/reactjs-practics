@@ -1,12 +1,14 @@
 import { useDispatch } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
 import { Header, Footer, Modal, Error } from './components'
-import { Auth, Reg, Users, Post, Main } from './pages'
+import { Auth, Reg, Users, Post, Main, User } from './pages'
 import { useLayoutEffect } from 'react'
 import { setUser } from './actions'
+import { ERROR } from './bff/constants'
 import styled from 'styled-components'
 
 const Content = styled.div`
+  width: 100%;
   padding: 20px;
 `
 
@@ -39,11 +41,11 @@ export const App = () => {
           <Route path='/login' element={<Auth />} />
           <Route path='/register' element={<Reg />} />
           <Route path='/users' element={<Users />} />
-          <Route path='/user/:id' element={<div>User Page</div>} />
+          <Route path='/user/:id' element={<User />} />
           <Route path='/post' element={<Post />} />
           <Route path='/post/:id' element={<Post />} />
           <Route path='/post/:id/edit' element={<Post />} />
-          <Route path='*' element={<Error error='Page not found' />} />
+          <Route path='*' element={<Error error={ERROR.PAGE_NOT_FOUND} />} />
         </Routes>
       </Content>
       <Footer />

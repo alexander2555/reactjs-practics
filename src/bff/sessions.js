@@ -11,7 +11,7 @@ export const sessions = {
     return hash
   },
   async remove(hash) {
-    const session = getSession(hash)
+    const session = await getSession(hash)
 
     if (!session) {
       return
@@ -21,8 +21,6 @@ export const sessions = {
   },
   async access(hash, accessRoles) {
     const session = await getSession(hash)
-
-    console.log('session:', session)
 
     return !!session?.user && accessRoles.includes(session.user.roleId)
   },

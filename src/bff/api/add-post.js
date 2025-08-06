@@ -6,7 +6,7 @@ export const addPost = ({ imageUrl, title, content }) =>
       image_url: imageUrl,
       title,
       content,
-      published_at: new Date(),
+      published_at: new Date().toLocaleDateString(),
     }),
   })
     .then(resp => {

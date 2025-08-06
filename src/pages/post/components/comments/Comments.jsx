@@ -21,24 +21,26 @@ const CommentsContainer = ({ className, comments, postId }) => {
     setNewComment('')
   }
 
-  const isAdmin = checkAccess([ROLE.ADMIN], userRole)
+  const isEditor = checkAccess([ROLE.ADMIN, ROLE.READER, ROLE.MODERATOR], userRole)
 
   return (
     <div className={className}>
       <h2>Comments</h2>
-      <EditGroup
-        name={'comment'}
-        data={newComment}
-        setData={setNewComment}
-        placeholder={'Add a comment...'}
-        onClick={() => onNewCommentAdd(userId, postId, newComment)}
-      />
+      {isEditor && (
+        <EditGroup
+          name='comment'
+          data={newComment}
+          setData={setNewComment}
+          placeholder='Add a comment...'
+          onClick={() => onNewCommentAdd(userId, postId, newComment)}
+        />
+      )}
 
       <div className='comments-list'>
         {comments.map(({ id, content, author, published_at }) => (
           <Comment
             key={id}
-            className='comment'
+            className='post-comment'
             id={id}
             postId={postId}
             content={content}

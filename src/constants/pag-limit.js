@@ -1,1 +1,1 @@
-export const PAG_LIMIT = 30
+export const PAG_LIMIT = 3

@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import { useEffect, useLayoutEffect } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { useMatch, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Error } from '../../components'
+import { Error, PrivateContent } from '../../components'
 import { PostContent, Comments, PostForm } from './components'
 import { useServerRequest } from '../../hooks'
 import { loadPostAsync, RESET_POST_DATA } from '../../actions'
 import { selectPost } from '../../selectors'
+import { ROLE } from '../../constants'
 import styled from 'styled-components'
 
 const PostContainer = ({ className }) => {
   const dispatch = useDispatch()
   const post = useSelector(selectPost)
 
-  const [error, setError] = useState(true)
+  const [error, setError] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
 
   const params = useParams()
@@ -37,24 +37,30 @@ const PostContainer = ({ className }) => {
     })
   }, [dispatch, requestSerevr, params.id, isCreating])
 
-  console.log(isLoading)
+  const SpecPostPage =
+    isEditing || isCreating ? (
+      <PrivateContent access={[ROLE.ADMIN]} serverError={error}>
+        <div className={className}>
+          <PostForm className={className} post={post} />
+        </div>
+      </PrivateContent>
+    ) : (
+      <div className={className}>
+        <PostContent post={post} />
+        <Comments comments={post.comments} postId={post.id} />
+      </div>
+    )
 
   return isLoading ? (
     <div>Loading...</div>
   ) : error ? (
     <Error error={error.message} />
   ) : (
-    <div className={className}>
-      {isEditing || isCreating ? (
-        <PostForm className={className} post={post} />
-      ) : (
-        <>
-          <PostContent className={className} post={post} />
-          <Comments comments={post.comments} postId={post.id} />
-        </>
-      )}
-    </div>
+    SpecPostPage
   )
 }
 
-export const Post = styled(PostContainer)``
+export const Post = styled(PostContainer)`
+  margin: 40px 0;
+  padding: 0 80px;
+`

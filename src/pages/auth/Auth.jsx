@@ -5,12 +5,11 @@ import { Link, Navigate } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Button, Input } from '../../components'
+import { useResetForm } from '../../hooks'
 import { server } from '../../bff'
 import { setUser } from '../../actions'
 import { selectUserRole } from '../../selectors'
 import { ROLE } from '../../constants'
-import { useResetForm } from '../../hooks'
-
 import styled from 'styled-components'
 
 const authFromSchema = yup.object().shape({
@@ -71,7 +70,7 @@ const AuthContainer = ({ className }) => {
 
   return (
     <div className={className}>
-      <h2>Auth</h2>
+      <h1>Auth</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type='text'
@@ -103,6 +102,7 @@ export const Auth = styled(AuthContainer)`
   justify-content: center;
   height: 100%;
   width: 300px;
+  margin: 0 auto;
 
   form {
     display: flex;

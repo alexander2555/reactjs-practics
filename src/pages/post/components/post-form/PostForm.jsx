@@ -53,9 +53,9 @@ const PostFormContainer = ({
       <Input value={imageUrlVal} placeholder='Image...' onChange={onImageUrlChange} />
       {imageUrl && <ImgFloat src={imageUrl} alt={title} />}
       <h1>{title}</h1>
+
       <SpecialPanel
         id={id}
-        className={className}
         publishedAt={publishedAt}
         editButton={
           <Button onClick={onSave}>
@@ -63,10 +63,13 @@ const PostFormContainer = ({
           </Button>
         }
       />
+
       <div className='post-content'>
+        <span className='placeholder'>Write or edit your content...</span>
         <div
           contentEditable={true}
           suppressContentEditableWarning={true}
+          placeholder='Content...'
           ref={contentRef}
         >
           {content}
@@ -76,4 +79,29 @@ const PostFormContainer = ({
   )
 }
 
-export const PostForm = styled(PostFormContainer)``
+export const PostForm = styled(PostFormContainer)`
+  & h1 {
+    text-align: left;
+    text-transform: capitalize;
+  }
+  & .post-content {
+    width: 100%;
+    position: relative;
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 3px;
+    float: left;
+
+    & .placeholder {
+      font-size: smaller;
+      // font-style: italic;
+      opacity: 0.5;
+    }
+
+    &:focus-within {
+      & .placeholder {
+        display: none;
+      }
+    }
+  }
+`

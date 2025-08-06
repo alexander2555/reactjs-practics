@@ -1,5 +1,5 @@
 export const deleteSession = async sessionId => {
-  fetch(`http://localhost:3005/sessions${sessionId}`, {
+  fetch(`http://localhost:3005/sessions/${sessionId}`, {
     method: 'DELETE',
   })
     .then(resp => {
@@ -8,7 +8,7 @@ export const deleteSession = async sessionId => {
       }
     })
     .catch(err => {
-      console.error('Error deleting session:', err)
+      console.warn('[bff api] Error deleting session:', err)
       return null
     })
 }
