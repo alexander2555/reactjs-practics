@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import { useDispatch, useStore, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { Navigate } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Button, Input } from '../../components'
+import { useResetForm } from '../../hooks'
 import { server } from '../../bff'
 import { setUser } from '../../actions'
-import styled from 'styled-components'
 import { selectUserRole } from '../../selectors'
 import { ROLE } from '../../constants'
-import { useResetForm } from '../../hooks'
+import styled from 'styled-components'
 
 const regFromSchema = yup.object().shape({
   login: yup
@@ -76,7 +76,7 @@ const RegContainer = ({ className }) => {
 
   return (
     <div className={className}>
-      <h2>Reg</h2>
+      <h1>Registration</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type='text'
@@ -109,8 +109,9 @@ export const Reg = styled(RegContainer)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   width: 300px;
+  height: 100%;
+  margin: 0 auto;
 
   form {
     display: flex;

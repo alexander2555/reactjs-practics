@@ -1,20 +1,19 @@
 import { transformPost } from '../transformers'
 
 export const getPost = async postId =>
-  fetch('http://localhost:3005/posts/' + postId)
+  fetch(`http://localhost:3005/posts/${postId}`)
     .then(resp => {
       if (resp.ok) {
         return resp.json()
       }
 
-      if (resp.status === 404) {
-        throw new Error(`Post with ID ${postId} not found.`)
-      }
+      const errorText =
+        resp.status === 404 ? `Post with ID ${postId} not found.` : resp.statusText
 
-      throw new Error(resp.statusText)
+      throw new Error(errorText)
     })
     .then(post => post && transformPost(post))
     .catch(err => {
-      console.error('Error fetching post:', err)
+      console.warn('[bff api] Error fetching post:', err)
       return { error: err }
     })

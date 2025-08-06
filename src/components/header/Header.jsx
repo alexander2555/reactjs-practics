@@ -8,7 +8,6 @@ const Description = styled.div`
 const HeaderContainer = ({ className }) => (
   <header className={className}>
     <Logo />
-    <h1>Header</h1>
     <Description>
       <p>Welcome to the application!</p>
     </Description>

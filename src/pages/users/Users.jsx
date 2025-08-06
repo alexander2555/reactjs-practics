@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 import { UserRow } from './components'
 import { useServerRequest } from '../../hooks'
-import { Content } from '../../components'
-import styled from 'styled-components'
+import { PrivateContent } from '../../components'
+import { useSelector } from 'react-redux'
+import { selectUserRole } from '../../selectors'
+import { checkAccess } from '../../utils'
 import { ROLE } from '../../constants'
+import styled from 'styled-components'
 
 const UsersContainer = ({ className }) => {
+  const userRole = useSelector(selectUserRole)
   const [users, setUsers] = useState([])
   const [roles, setRoles] = useState([])
   const [errMessage, setErrMessage] = useState(null)
@@ -14,6 +18,8 @@ const UsersContainer = ({ className }) => {
   const requestServer = useServerRequest()
 
   useEffect(() => {
+    if (!checkAccess([ROLE.ADMIN], userRole)) return
+
     Promise.all([requestServer('fetchUsers'), requestServer('fetchRoles')]).then(
       ([usersRes, rolesRes]) => {
         if (usersRes.error || rolesRes.error) {
@@ -25,9 +31,11 @@ const UsersContainer = ({ className }) => {
         setRoles(rolesRes.res)
       },
     )
-  }, [requestServer, shouldUpdateUsersList])
+  }, [requestServer, shouldUpdateUsersList, userRole])
 
   const onUserRemove = userId => {
+    if (!checkAccess([ROLE.ADMIN], userRole)) return
+
     requestServer('removeUser', userId).then(() => {
       setShouldUpdateUsersList(!shouldUpdateUsersList)
     })
@@ -35,8 +43,8 @@ const UsersContainer = ({ className }) => {
 
   return (
     <div className={className}>
-      <Content error={errMessage}>
-        <h2>Users</h2>
+      <PrivateContent access={[ROLE.ADMIN]} error={errMessage}>
+        <h1>Users</h1>
         <table>
           <tbody>
             <tr>
@@ -58,9 +66,13 @@ const UsersContainer = ({ className }) => {
             ))}
           </tbody>
         </table>
-      </Content>
+      </PrivateContent>
     </div>
   )
 }
 
-export const Users = styled(UsersContainer)``
+export const Users = styled(UsersContainer)`
+  & table {
+    margin: 0 auto;
+  }
+`

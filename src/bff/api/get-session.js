@@ -1,5 +1,3 @@
-import { transformSession } from '../transformers'
-
 export const getSession = async hash =>
   fetch(`http://localhost:3005/sessions?hash=${hash}`)
     .then(resp => {
@@ -8,8 +6,8 @@ export const getSession = async hash =>
       }
       throw new Error(resp.statusText)
     })
-    .then(session => session && transformSession(session))
+    .then(sessions => sessions[0])
     .catch(err => {
-      console.error('Error getting session:', err)
+      console.warn('[bff api] Error getting session:', err)
       return null
     })

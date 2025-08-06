@@ -28,30 +28,49 @@ const MainContainer = ({ className }) => {
   }
 
   return (
-    <>
+    <div className={className}>
       <h1>Main Page</h1>
-      <Search searchPhrase={searchPhrase} onChange={onSearch} />
       {posts.length ? (
-        <div className={className}>
-          {posts.map(({ id, title, imageUrl, publishedAt, commentsCount }) => (
-            <Postcard
-              key={id}
-              id={id}
-              title={title}
-              imageUrl={imageUrl}
-              publishedAt={publishedAt}
-              commentsCount={commentsCount}
-            />
-          ))}
-        </div>
+        <>
+          <Search searchPhrase={searchPhrase} onChange={onSearch} />
+          <div className='posts-list'>
+            {posts.map(({ id, title, imageUrl, publishedAt, commentsCount }) => (
+              <Postcard
+                key={id}
+                id={id}
+                title={title}
+                imageUrl={imageUrl}
+                publishedAt={publishedAt}
+                commentsCount={commentsCount}
+              />
+            ))}
+          </div>
+        </>
       ) : (
-        <div>Nothing</div>
+        <p>There are no posts yet...</p>
       )}
       {!!((lastPage > 1) & posts.length) && (
         <Pagination setPage={setPage} page={page} lastPage={lastPage} />
       )}
-    </>
+    </div>
   )
 }
 
-export const Main = styled(MainContainer)``
+export const Main = styled(MainContainer)`
+  // width: 100%;
+
+  & .posts-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  & p {
+    text-align: center;
+    font-style: italic;
+  }
+`

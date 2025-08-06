@@ -5,7 +5,6 @@ import styled from 'styled-components'
 const ImgFloat = styled.img`
   float: left;
   margin-right: 10px;
-  margin-bottom: 10px;
 `
 
 const PostContentContainer = ({
@@ -18,7 +17,6 @@ const PostContentContainer = ({
       <h1>{title}</h1>
       <SpecialPanel
         id={id}
-        className={className}
         publishedAt={publishedAt}
         editButton={
           <Button link={'/post/' + id + '/edit'}>
@@ -33,4 +31,11 @@ const PostContentContainer = ({
   )
 }
 
-export const PostContent = styled(PostContentContainer)``
+export const PostContent = styled(PostContentContainer)`
+  border-bottom: 1px solid #ccc;
+
+  & h1 {
+    text-align: left;
+    text-transform: capitalize;
+  }
+`

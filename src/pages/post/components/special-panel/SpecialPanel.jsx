@@ -36,14 +36,18 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
       <span>
         {isAdmin && editButton}
         &nbsp;
-        <Icon id='calendar' />
-        &nbsp;
-        {publishedAt}
       </span>
-      {!!publishedAt && isAdmin && (
-        <Button onClick={() => onPostRemove(id)}>
-          <Icon id='trash' />
-        </Button>
+      {!!publishedAt && (
+        <>
+          <Icon id='calendar' />
+          &nbsp;{publishedAt}
+          &nbsp;
+          {isAdmin && (
+            <Button onClick={() => onPostRemove(id)}>
+              <Icon id='trash' />
+            </Button>
+          )}
+        </>
       )}
     </div>
   )

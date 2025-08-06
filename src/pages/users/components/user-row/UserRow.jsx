@@ -33,7 +33,7 @@ const UserRowContainer = ({
   return (
     <tr className={className}>
       <td>
-        <Button link={'/user:' + login}>
+        <Button link={`/user/${id}`}>
           {login}
           &nbsp;
           <Icon id='user'></Icon>

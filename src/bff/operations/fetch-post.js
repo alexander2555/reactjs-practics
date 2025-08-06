@@ -13,8 +13,6 @@ export const fetchPost = async postId => {
 
   const comments = await getPostCommentsAuthor(postId)
 
-  console.log('Fetched comments:', comments)
-
   return {
     error: null,
     res: { ...post, comments },

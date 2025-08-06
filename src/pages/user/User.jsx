@@ -1,12 +1,19 @@
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
-const UserContainer = ({ className, login }) => {
+const UserContainer = ({ className }) => {
+  const params = useParams()
+
   return (
     <div className={className}>
-      <h2>User ${login}</h2>
-      <p>This is the user page content.</p>
+      <h1>User ID: {params.id}</h1>
+      <p>This will the user page content...</p>
     </div>
   )
 }
 
-export const User = styled(UserContainer)``
+export const User = styled(UserContainer)`
+  & p {
+    text-align: center;
+  }
+`

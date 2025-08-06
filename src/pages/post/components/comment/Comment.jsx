@@ -26,21 +26,37 @@ const CommentContainer = ({ className, id, postId, content, author, publishedAt 
     )
   }
 
-  const isAdminOrModerator = checkAccess([ROLE.ADMIN, ROLE.MODERATOR], userRole)
+  const isModerator = checkAccess([ROLE.ADMIN, ROLE.MODERATOR], userRole)
 
   return (
     <div className={className}>
       <p>{content}</p>
-      <span>{new Date(publishedAt).toLocaleDateString()}</span>
-      &nbsp;
-      <span>by {author}</span>
-      {isAdminOrModerator && (
-        <Button onClick={() => onCommentRemove(id)}>
-          <Icon id='trash' />
-        </Button>
-      )}
+      <div className='comment-footer'>
+        <span>
+          Written&nbsp;
+          <Icon id='calendar' />
+          &nbsp;{new Date(publishedAt).toLocaleDateString()}
+        </span>
+        &nbsp;
+        <span>
+          by&nbsp;
+          <Icon id='user' />
+          &nbsp;{author}
+        </span>
+        {isModerator && (
+          <Button onClick={() => onCommentRemove(id)}>
+            <Icon id='trash' />
+          </Button>
+        )}
+      </div>
     </div>
   )
 }
 
-export const Comment = styled(CommentContainer)``
+export const Comment = styled(CommentContainer)`
+  margin: 10px 0;
+  border-top: 1px solid #ccc;
+
+  & .comment-footer {
+    font-size: smaller;
+`
