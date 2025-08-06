@@ -7,7 +7,6 @@ export const fetchPosts = async (searchPhrase, limit, page) => {
     getComments(),
   ])
 
-  // console.log('limit:', limit, 'links:', links)
   return {
     error: null,
     res: posts.map(post => ({

@@ -100,17 +100,5 @@
       "id": 5
     }
   ],
-  "sessions": [
-    {
-      "hash": "86z4qr9lw7fxaysza49",
-      "user": {
-        "id": "001",
-        "login": "user1",
-        "password": "Pa$$w0rd",
-        "registeredAt": "2023-01-01",
-        "roleId": 0
-      },
-      "id": 1
-    }
-  ]
+  "sessions": []
 }
