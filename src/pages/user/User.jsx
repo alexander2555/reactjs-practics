@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 const UserContainer = ({ className }) => {

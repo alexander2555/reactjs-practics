@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useLayoutEffect, useRef, useState } from 'react'
 import { Button, Icon, Input } from '../../../../components'
 import { SpecialPanel } from '../special-panel/SpecialPanel'
 import { sanitizeContent } from './utils'
@@ -109,5 +108,5 @@ export const PostForm = styled(PostFormContainer)`
 `
 
 PostForm.propTypes = {
-  post: PropTypes.arrayOf(PROP_TYPE.POST).isRequired,
+  post: PROP_TYPE.POST.isRequired,
 }

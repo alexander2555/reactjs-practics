@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { openModal, CLOSE_MODAL, removeCommentAsync } from '../../../../actions'
 import { Button, Icon } from '../../../../components'
 import { useServerRequest } from '../../../../hooks'
-import { useSelector } from 'react-redux'
 import { checkAccess } from '../../../../utils'
 import { selectUserRole } from '../../../../selectors'
-import styled from 'styled-components'
 import { ROLE } from '../../../../constants'
+import styled from 'styled-components'
 
 const CommentContainer = ({ className, id, postId, content, author, publishedAt }) => {
   const dispatch = useDispatch()

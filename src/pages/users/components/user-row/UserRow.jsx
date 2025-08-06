@@ -2,9 +2,8 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { useServerRequest } from '../../../../hooks'
 import { Button, Icon } from '../../../../components'
-
-import styled from 'styled-components'
 import { PROP_TYPE } from '../../../../constants'
+import styled from 'styled-components'
 
 const UserRowContainer = ({
   className,
